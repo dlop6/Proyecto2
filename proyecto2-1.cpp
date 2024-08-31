@@ -147,7 +147,7 @@ int main() {
     mergeSort(data, 0, arr_size - 1);
     double end_time = omp_get_wtime();
 
-    cout << "Tiempo transcurrido en el ordenamiento: " << end_time - start_time << " segundos" << endl;
+    cout << "Tiempo transcurrido en el ordenamiento paralelo: " << end_time - start_time << " segundos" << endl;
 
     // // Guardar los números ordenados en un archivo .txt
     // ofstream outfile("sorted_numbers.txt");

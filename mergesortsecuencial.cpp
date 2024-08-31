@@ -25,7 +25,7 @@ vector<int> convert_to_ints(const vector<char>& data) {
 }
 
 // Función para leer el archivo completo
-vector<int> lecturaArchivo() {
+vector<int> lecturaArchivoSecuencial() {
     string filename = "random_numbers.txt";
     
     // Obtener el tamaño total del archivo
@@ -92,14 +92,14 @@ void merge(vector<int>& arr, int l, int m, int r) {
 }
 
 // Función que implementa Merge Sort
-void mergeSort(vector<int>& arr, int l, int r) {
+void mergeSortSecuencial(vector<int>& arr, int l, int r) {
     if (l < r) {
         // Encuentra el punto medio
         int m = l + (r - l) / 2;
 
         // Divide y ordena cada mitad
-        mergeSort(arr, l, m);
-        mergeSort(arr, m + 1, r);
+        mergeSortSecuencial(arr, l, m);
+        mergeSortSecuencial(arr, m + 1, r);
 
         // Combina las mitades ordenadas
         merge(arr, l, m, r);
@@ -115,14 +115,18 @@ void printArray(const vector<int>& A) {
 
 int main() {
     // Leer el archivo
-    vector<int> data = lecturaArchivo();
+    auto start_read = chrono::high_resolution_clock::now(); // Medir el tiempo de inicio de lectura
+    vector<int> data = lecturaArchivoSecuencial();
+    auto end_read = chrono::high_resolution_clock::now(); // Medir el tiempo de finalización de lectura
     int arr_size = data.size();
 
+    cout << "Datos leídos: " << arr_size << endl;
+    cout << "Leidos en un tiempo de: " << chrono::duration<double>(end_read - start_read).count() << " segundos" << endl;
 
 
     // Medir el tiempo de ejecución de Merge Sort
     auto start_time = chrono::high_resolution_clock::now();
-    mergeSort(data, 0, arr_size - 1);
+    mergeSortSecuencial(data, 0, arr_size - 1);
     auto end_time = chrono::high_resolution_clock::now();
 
     // Calcular el tiempo transcurrido
