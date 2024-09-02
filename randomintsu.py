@@ -1,7 +1,8 @@
 import random
 
+NUM = 100
 # Generate 10 million random numbers
-numbers = [str(random.randint(1, 1000000)) for _ in range(1000000)]
+numbers = [str(random.randint(1, NUM)) for _ in range(NUM)]
 
 # Join the numbers with commas
 numbers_str = ','.join(numbers)

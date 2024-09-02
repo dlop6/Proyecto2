@@ -120,8 +120,7 @@ int main() {
     auto end_read = chrono::high_resolution_clock::now(); // Medir el tiempo de finalización de lectura
     int arr_size = data.size();
 
-    cout << "Datos leídos: " << arr_size << endl;
-    cout << "Leidos en un tiempo de: " << chrono::duration<double>(end_read - start_read).count() << " segundos" << endl;
+    cout << "Size: " << arr_size << endl;
 
 
     // Medir el tiempo de ejecución de Merge Sort
@@ -131,7 +130,7 @@ int main() {
 
     // Calcular el tiempo transcurrido
     chrono::duration<double> time_taken = end_time - start_time;
-    cout << "Tiempo transcurrido en Merge Sort: " << time_taken.count() << " segundos" << endl;
+    cout << "Tiempo transcurrido en merge sort secuencial: " << time_taken.count() << " segundos" << endl;
 
     
 
